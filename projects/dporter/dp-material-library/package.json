@@ -1,5 +1,5 @@
 {
-  "name": "dp-material-library",
+  "name": "@dporter/dp-material-library",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^9.1.11",

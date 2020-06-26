@@ -19,6 +19,10 @@
       "dp-material-library": [
         "dist/dp-material-library/dp-material-library",
         "dist/dp-material-library"
+      ],
+      "@dporter/dp-material-library": [
+        "dist/dporter/dp-material-library/dporter-dp-material-library",
+        "dist/dporter/dp-material-library"
       ]
     }
   },

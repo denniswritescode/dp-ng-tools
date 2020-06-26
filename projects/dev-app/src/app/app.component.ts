@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { from, Observable } from 'rxjs';
-import { DPTableColumnConfig } from 'dp-material-library';
+import { DPTableColumnConfig } from '@dporter/dp-material-library';
 
 @Component({
   selector: 'app-root',

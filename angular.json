@@ -3,46 +3,6 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dp-material-library": {
-      "projectType": "library",
-      "root": "projects/dp-material-library",
-      "sourceRoot": "projects/dp-material-library/src",
-      "prefix": "dp",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/dp-material-library/tsconfig.lib.json",
-            "project": "projects/dp-material-library/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/dp-material-library/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/dp-material-library/src/test.ts",
-            "tsConfig": "projects/dp-material-library/tsconfig.spec.json",
-            "karmaConfig": "projects/dp-material-library/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/dp-material-library/tsconfig.lib.json",
-              "projects/dp-material-library/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
     "dev-app": {
       "projectType": "application",
       "schematics": {
@@ -163,6 +123,46 @@
           }
         }
       }
+    },
+    "@dporter/dp-material-library": {
+      "projectType": "library",
+      "root": "projects/dporter/dp-material-library",
+      "sourceRoot": "projects/dporter/dp-material-library/src",
+      "prefix": "dp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/dporter/dp-material-library/tsconfig.lib.json",
+            "project": "projects/dporter/dp-material-library/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/dporter/dp-material-library/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dporter/dp-material-library/src/test.ts",
+            "tsConfig": "projects/dporter/dp-material-library/tsconfig.spec.json",
+            "karmaConfig": "projects/dporter/dp-material-library/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dporter/dp-material-library/tsconfig.lib.json",
+              "projects/dporter/dp-material-library/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
-  "defaultProject": "dp-material-library"
+  "defaultProject": "@dporter/dp-material-library"
 }
