@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
-import { TableComponent } from './table/table.component';
 
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
+import { DPTableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
-    TableComponent,
+    DPTableComponent,
   ],
   imports: [
+    MatTableModule,
+    MatPaginatorModule,
   ],
   exports: [
-    TableComponent,
+    DPTableComponent,
   ]
 })
-export class DpMaterialLibraryModule { }
+export class DPMaterialLibraryModule { }

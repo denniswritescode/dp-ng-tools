@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { DpMaterialLibraryModule } from 'projects/dp-material-library/src/lib/dp-material-library.module';
+import { DPMaterialLibraryModule } from 'projects/dp-material-library/src/lib/dp-material-library.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { DpMaterialLibraryModule } from 'projects/dp-material-library/src/lib/dp
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DpMaterialLibraryModule,
+    DPMaterialLibraryModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
