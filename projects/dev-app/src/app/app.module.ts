@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { DPMaterialLibraryModule } from '@dporter/dp-material-library';
+import { DPMaterialLibraryModule } from 'projects/dporter/dp-material-library/src/lib/dp-material-library.module';
 
 @NgModule({
   declarations: [

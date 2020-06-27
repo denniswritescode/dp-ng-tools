@@ -1,1 +1,24 @@
-<p>table works! And we're listening... still</p>
+<table mat-table multiTemplateDataRows [dataSource]="dataSource">
+
+  <ng-container *ngFor="let column of columns" [matColumnDef]="column.property">
+
+    <th mat-header-cell *matHeaderCellDef>
+
+      {{ column.header }}
+
+    </th>
+
+    <td mat-cell *matCellDef="let row">
+
+      {{ row[ column.property ] }}
+
+    </td>
+
+  </ng-container>
+
+  <!-- DEFINE ROW TEMPLATES -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>

@@ -6,10 +6,17 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<div class="boxed">
 
-<h2>DP Material Library</h2>
-<p>This library was created to simplify some features of the @angular/material library and add a few useful options.</p>
+  <h2>DP Material Library</h2>
 
-<dp-table></dp-table>
+  <p>This library was created to simplify some features of the @angular/material library and add a few useful options.</p>
 
-<router-outlet></router-outlet>
+  <dp-table
+    [columns]="columns"
+    [data]="contacts"
+  ></dp-table>
+
+  <router-outlet></router-outlet>
+
+</div>
