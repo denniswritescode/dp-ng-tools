@@ -16,6 +16,8 @@ interface IExampleContact {
 export class AppComponent {
   public title = 'dev-app';
 
+  public contactTableCode = `<dp-table [columns]="columns" [data]="contacts"></dp-table>`;
+
   public columns: DPTableColumnConfig[] = [
     { property: 'name', header: 'Contact' },
     { property: 'phone', header: 'Phone' },
