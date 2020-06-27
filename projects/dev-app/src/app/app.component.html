@@ -29,11 +29,21 @@
   </div>
 
   <dp-table
-    [columns]="columns"
     [data]="contacts"
+    [columns]="columns"
     [mobileColumns]="mobileColumns"
     [mobile]="mobile"
-  ></dp-table>
+  >
+
+    <ng-container *dpCellDef="let row;column:'name'">
+      Sup, {{row}}!
+    </ng-container>
+
+    <ng-container *dpCellDef="let row;column:'phone'">
+      {{row.phone}} #ringring
+    </ng-container>
+
+  </dp-table>
 
   <router-outlet></router-outlet>
 

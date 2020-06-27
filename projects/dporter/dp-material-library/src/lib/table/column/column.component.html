@@ -10,6 +10,8 @@
 
     {{ row[ config.property ] }}
 
+    <ng-container [ngTemplateOutlet]="template" [ngTemplateOutletContext]="row"></ng-container>
+
   </td>
 
 </ng-container>

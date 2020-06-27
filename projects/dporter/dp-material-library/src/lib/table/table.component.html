@@ -1,10 +1,20 @@
-<table mat-table multiTemplateDataRows [dataSource]="dataSource">
+<table mat-table multiTemplateDataRows [dataSource]="dataSource" *ngIf="dataLength">
 
-  <dp-column *ngFor="let column of columns" [config]="column"></dp-column>
+  <dp-column
+    *ngFor="let column of columns"
+    [config]="column"
+    [template]="cellTemplates['name']"
+  ></dp-column>
 
   <!-- DEFINE ROW TEMPLATES -->
-  <tr mat-header-row *matHeaderRowDef="displayedColumns()"></tr>
+  <tr
+    mat-header-row
+    *matHeaderRowDef="displayedColumns"
+  ></tr>
 
-  <tr mat-row *matRowDef="let row; columns: displayedColumns();"></tr>
+  <tr
+    mat-row
+    *matRowDef="let row; columns: displayedColumns;"
+  ></tr>
 
 </table>

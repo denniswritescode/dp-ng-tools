@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { of, Observable } from 'rxjs';
 import { DPTableColumnConfig } from 'projects/dporter/dp-material-library/src/public-api';
+import { Observable, of } from 'rxjs';
 
 interface IExampleContact {
   name: string;
@@ -14,6 +14,7 @@ interface IExampleContact {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  public keys = Object.keys;
   public title = 'dev-app';
 
   public contactTableCode = `<dp-table [columns]="columns" [data]="contacts"></dp-table>`;
