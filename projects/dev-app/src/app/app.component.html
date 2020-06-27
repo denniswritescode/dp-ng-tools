@@ -12,11 +12,28 @@
 
   <p>This library was created to simplify some features of the @angular/material library and add a few useful options.</p>
 
-  <code>
-    Usage: {{ contactTableCode }}
-  </code>
+  <div>
 
-  <dp-table [columns]="columns" [data]="contacts"></dp-table>
+    <code>
+      Usage: {{ contactTableCode }}
+    </code>
+
+  </div>
+
+  <div>
+
+    <button (click)="mobile = !mobile">
+      Toggle Mobile (hack)
+    </button>
+
+  </div>
+
+  <dp-table
+    [columns]="columns"
+    [data]="contacts"
+    [mobileColumns]="mobileColumns"
+    [mobile]="mobile"
+  ></dp-table>
 
   <router-outlet></router-outlet>
 

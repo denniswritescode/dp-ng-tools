@@ -24,6 +24,9 @@ export class AppComponent {
     { property: 'company', header: 'Company' },
   ];
 
+  public mobileColumns = [ 'name' ];
+  public mobile = false;
+
   public contacts: Observable<IExampleContact[]> = of([
     {
       name: 'John Doe',

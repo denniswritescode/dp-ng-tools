@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, OnDestroy } from '@angular/core';
 
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
@@ -14,14 +14,16 @@ export interface DPTableColumnConfig {
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class DPTableComponent<T> implements OnInit {
+export class DPTableComponent<T> implements OnInit, OnDestroy {
   @ViewChild(MatTable) table: MatTable<T>;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   @Input() public data: Observable<T[]>;
   @Input() public columns: DPTableColumnConfig[];
+  @Input() public mobileColumns: string[];
+  @Input() public mobile: boolean;
 
-  public displayedColumns: string[];
+  private columnNames: string[];
 
   public dataSource: MatTableDataSource<T>;
   public dataLength: number;
@@ -31,17 +33,27 @@ export class DPTableComponent<T> implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.columnNames = this.columns.map(c => c.property);
+
     this.subscriptions.push(
       this.data
         .subscribe(this.dataHandler.bind(this))
     );
-
-    this.displayedColumns = this.columns.map(c => c.property);
   }
 
   dataHandler(data: T[]) {
     this.dataLength = data.length;
     this.dataSource = new MatTableDataSource(data);
     this.dataSource.paginator = this.paginator;
+  }
+
+  displayedColumns(): string[] {
+    return this.mobile ?
+      this.columnNames.filter(c => this.mobileColumns.includes(c)) :
+      this.columnNames;
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(s => s.unsubscribe());
   }
 }
