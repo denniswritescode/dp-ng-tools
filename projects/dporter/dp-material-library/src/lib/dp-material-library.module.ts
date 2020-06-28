@@ -5,7 +5,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 
 import { DPCellDefinitionDirective } from './table/cell-definition/cell-definition.directive';
-import { DPCellComponent } from './table/cell/cell.component';
 import { DPColumnComponent } from './table/column/column.component';
 import { DPTableComponent } from './table/table.component';
 
@@ -13,7 +12,6 @@ import { DPTableComponent } from './table/table.component';
   declarations: [
     DPTableComponent,
     DPColumnComponent,
-    DPCellComponent,
     DPCellDefinitionDirective,
   ],
   imports: [
@@ -24,7 +22,6 @@ import { DPTableComponent } from './table/table.component';
   exports: [
     DPTableComponent,
     DPColumnComponent,
-    DPCellComponent,
     DPCellDefinitionDirective,
   ]
 })

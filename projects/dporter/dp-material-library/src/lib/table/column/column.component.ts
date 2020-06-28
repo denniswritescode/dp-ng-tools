@@ -1,4 +1,12 @@
-import { AfterViewInit, Component, Input, Optional, TemplateRef, ViewChild, OnChanges } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Input,
+  Optional,
+  TemplateRef,
+  ViewChild
+} from '@angular/core';
+
 import { MatColumnDef, MatTable } from '@angular/material/table';
 import { DPTableColumnConfig } from '../table.component';
 
@@ -7,17 +15,14 @@ import { DPTableColumnConfig } from '../table.component';
   templateUrl: './column.component.html',
   styleUrls: ['./column.component.css']
 })
-export class DPColumnComponent implements AfterViewInit, OnChanges {
+export class DPColumnComponent implements AfterViewInit {
   @Input() public config: DPTableColumnConfig;
   @Input() public template: TemplateRef<any>;
+  @Input() public mobile: boolean;
 
   @ViewChild(MatColumnDef) columnDef: MatColumnDef;
 
   constructor(@Optional() public table: MatTable<any>) { }
-
-  ngOnChanges(changes) {
-    console.log(changes);
-  }
 
   ngAfterViewInit() {
     if (this.table) {

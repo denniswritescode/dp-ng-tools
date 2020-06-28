@@ -8,9 +8,17 @@
 
   <td mat-cell *matCellDef="let row">
 
-    {{ row[ config.property ] }}
+    <!-- All cells use basic template unless a custom template is passed -->
+    <ng-template #basicTemplate>
+      {{ row[ config.property ] }}
+    </ng-template>
 
-    <ng-container [ngTemplateOutlet]="template" [ngTemplateOutletContext]="row"></ng-container>
+    <!-- If a 'template' exists, a custom template was passed for this column -->
+    <ng-container
+      *ngIf="template; else basicTemplate"
+      [ngTemplateOutlet]="template"
+      [ngTemplateOutletContext]="{ $implicit: row, mobile: mobile }"
+    ></ng-container>
 
   </td>
 

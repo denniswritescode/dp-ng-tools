@@ -1,9 +1,11 @@
 <table mat-table multiTemplateDataRows [dataSource]="dataSource" *ngIf="dataLength">
 
+
   <dp-column
     *ngFor="let column of columns"
     [config]="column"
-    [template]="cellTemplates['name']"
+    [template]="cellTemplates[column.property]"
+    [mobile]="mobile"
   ></dp-column>
 
   <!-- DEFINE ROW TEMPLATES -->

@@ -1,12 +1,12 @@
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ContentChildren,
   Input,
   OnDestroy,
   OnInit,
   QueryList,
-  TemplateRef,
   ViewChild,
 } from '@angular/core';
 
@@ -36,7 +36,7 @@ export class DPTableComponent<T> implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   @Input() public data: Observable<T[]>;
-  @Input() public columns: DPTableColumnConfig[];
+  @Input() public columns: DPTableColumnConfig[] = [];
   @Input() public mobileColumns: string[];
   @Input() public mobile: boolean;
 
@@ -57,7 +57,15 @@ export class DPTableComponent<T> implements OnInit, OnDestroy, AfterViewInit {
       this.columnNames;
   }
 
+  constructor(private ref: ChangeDetectorRef) { }
+
   ngOnInit(): void {
+    // Detaching here, and reattaching in ngAfterViewInit prevents the
+    // ExpressionChangedAfterItHasBeenCheckedError error. That error was happening
+    // because we were changing important data in the view immediately after it was
+    // initiated and checked.
+    this.ref.detach();
+
     this.columnNames = this.columns.map(c => c.property);
 
     this.subs.push(
@@ -76,6 +84,9 @@ export class DPTableComponent<T> implements OnInit, OnDestroy, AfterViewInit {
     this.definedTemplates.forEach(t => {
       this.cellTemplates[t.getColumn()] = t.templateRef;
     });
+
+    this.ref.reattach();
+    this.ref.detectChanges();
   }
 
   ngOnDestroy() {
