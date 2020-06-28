@@ -32,7 +32,7 @@
     </ng-container>
 
     <ng-container *dpCellDef="let row;column:'phone'">
-      {{row.phone}} #ringring
+      <a [href]="row.phone | dpPhone:'link'">{{row.phone | dpPhone}}</a>
     </ng-container>
 
   </dp-table>

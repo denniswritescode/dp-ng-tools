@@ -23,6 +23,10 @@
       "@dporter/dp-material-library": [
         "dist/dporter/dp-material-library/dporter-dp-material-library",
         "dist/dporter/dp-material-library"
+      ],
+      "@dporter/dp-common": [
+        "dist/dporter/dp-common/dporter-dp-common",
+        "dist/dporter/dp-common"
       ]
     }
   },

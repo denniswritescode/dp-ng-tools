@@ -165,6 +165,46 @@
           }
         }
       }
+    },
+    "@dporter/dp-common": {
+      "projectType": "library",
+      "root": "projects/dporter/dp-common",
+      "sourceRoot": "projects/dporter/dp-common/src",
+      "prefix": "dp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/dporter/dp-common/tsconfig.lib.json",
+            "project": "projects/dporter/dp-common/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/dporter/dp-common/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dporter/dp-common/src/test.ts",
+            "tsConfig": "projects/dporter/dp-common/tsconfig.spec.json",
+            "karmaConfig": "projects/dporter/dp-common/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dporter/dp-common/tsconfig.lib.json",
+              "projects/dporter/dp-common/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "@dporter/dp-material-library"
 }
