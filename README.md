@@ -1,4 +1,8 @@
-# DpMaterial
+# DP Angular Tools
+
+This project contains several libraries of tools, components, pipes, and services that I've abstracted out of my projects.
+
+## Angular Generated
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8.
 
