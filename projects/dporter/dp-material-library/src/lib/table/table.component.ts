@@ -15,11 +15,7 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { Observable, Subscription } from 'rxjs';
 
 import { DPCellDefinitionDirective } from './cell-definition/cell-definition.directive';
-
-export interface DPTableColumnConfig {
-  property: string;
-  header: string;
-}
+import { IDPRowExpandableConfig } from './row-expandable/row-expandable.component';
 
 @Component({
   selector: 'dp-table',
@@ -28,7 +24,9 @@ export interface DPTableColumnConfig {
 })
 export class DPTableComponent<T> implements OnInit, OnDestroy, AfterViewInit {
 
-  @ContentChildren(DPCellDefinitionDirective) public definedTemplates!: QueryList<DPCellDefinitionDirective>;
+  @ContentChildren(DPCellDefinitionDirective)
+    public definedTemplates!: QueryList<DPCellDefinitionDirective>;
+
   public cellTemplates: object = {};
   public templatesLoaded = false;
 
@@ -36,7 +34,8 @@ export class DPTableComponent<T> implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   @Input() public data: Observable<T[]>;
-  @Input() public columns: DPTableColumnConfig[] = [];
+  @Input() public columns: IDPTableColumnConfig[] = [];
+  @Input() public expandableConfig: IDPRowExpandableConfig;
   @Input() public mobileColumns: string[];
   @Input() public mobile: boolean;
 
@@ -92,4 +91,13 @@ export class DPTableComponent<T> implements OnInit, OnDestroy, AfterViewInit {
   ngOnDestroy() {
     this.subs.forEach(s => s.unsubscribe());
   }
+}
+
+/*****************************
+ * Table Interfaces
+ *****************************/
+export interface IDPTableColumnConfig {
+  property: string;
+  header: string;
+  cellFormat?: string;
 }

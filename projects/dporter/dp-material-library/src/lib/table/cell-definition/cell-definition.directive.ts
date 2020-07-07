@@ -10,7 +10,8 @@ export class DPCellDefinitionDirective {
   constructor(
     public templateRef: TemplateRef<any>,
     private viewContainerRef: ViewContainerRef,
-  ) {}
+  ) {
+  }
 
   public getColumn(): string {
     return this.dpCellDefColumn;

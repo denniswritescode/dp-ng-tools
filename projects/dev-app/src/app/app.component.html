@@ -7,7 +7,9 @@
   <div>
 
     <code>
+
       Usage: {{ contactTableCode }}
+
     </code>
 
   </div>
@@ -15,7 +17,9 @@
   <div>
 
     <button (click)="mobile = !mobile">
+
       Toggle Mobile (hack)
+
     </button>
 
   </div>
@@ -25,13 +29,14 @@
     [columns]="columns"
     [mobileColumns]="mobileColumns"
     [mobile]="mobile"
+    [expandableConfig]="expandable"
   >
 
-    <ng-container *dpCellDef="let row;column:'name'">
+    <ng-container *dpCellDef="let row; column:'name'">
       Sup, {{row.name}}!
     </ng-container>
 
-    <ng-container *dpCellDef="let row;column:'phone'">
+    <ng-container *dpCellDef="let row; column:'phone'">
       <a [href]="row.phone | dpPhone:'link'">{{row.phone | dpPhone}}</a>
     </ng-container>
 

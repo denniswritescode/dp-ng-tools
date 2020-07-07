@@ -6,6 +6,7 @@ import { MatTableModule } from '@angular/material/table';
 
 import { DPCellDefinitionDirective } from './table/cell-definition/cell-definition.directive';
 import { DPColumnComponent } from './table/column/column.component';
+import { DPRowExpandableComponent } from './table/row-expandable/row-expandable.component';
 import { DPTableComponent } from './table/table.component';
 
 @NgModule({
@@ -13,6 +14,7 @@ import { DPTableComponent } from './table/table.component';
     DPTableComponent,
     DPColumnComponent,
     DPCellDefinitionDirective,
+    DPRowExpandableComponent,
   ],
   imports: [
     CommonModule,

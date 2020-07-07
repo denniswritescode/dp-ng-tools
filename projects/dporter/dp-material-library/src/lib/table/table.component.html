@@ -1,5 +1,9 @@
-<table mat-table multiTemplateDataRows [dataSource]="dataSource" *ngIf="dataLength">
-
+<table
+  mat-table
+  multiTemplateDataRows
+  [dataSource]="dataSource"
+  *ngIf="dataLength"
+>
 
   <dp-column
     *ngFor="let column of columns"
@@ -9,14 +13,12 @@
   ></dp-column>
 
   <!-- DEFINE ROW TEMPLATES -->
-  <tr
-    mat-header-row
-    *matHeaderRowDef="displayedColumns"
-  ></tr>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-  <tr
-    mat-row
-    *matRowDef="let row; columns: displayedColumns;"
-  ></tr>
+  <dp-row-expandable
+    [colSpan]="displayedColumns.length"
+    [config]="expandableData"
+  ></dp-row-expandable>
 
 </table>

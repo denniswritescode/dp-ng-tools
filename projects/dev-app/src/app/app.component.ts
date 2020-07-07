@@ -7,9 +7,10 @@ import {
   TABLE_COLUMNS,
   TABLE_COLUMNS_MOBILE_FILTER,
   TABLE_DATA,
+  TABLE_EXPANDABLE_DATA,
 } from './configurations/table.config';
 
-import { DPTableColumnConfig } from 'projects/dporter/dp-material-library/src/public-api';
+import { IDPRowExpandableConfig, IDPTableColumnConfig } from 'projects/dporter/dp-material-library/src/public-api';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,8 @@ export class AppComponent {
   public contactTableCode = `<dp-table [columns]="columns" [data]="contacts"></dp-table>`;
 
   public contacts: Observable<IExampleContact[]> = TABLE_DATA;
-  public columns: DPTableColumnConfig[] = TABLE_COLUMNS;
+  public columns: IDPTableColumnConfig[] = TABLE_COLUMNS;
+  public expandable: IDPRowExpandableConfig = TABLE_EXPANDABLE_DATA;
   public mobileColumns = TABLE_COLUMNS_MOBILE_FILTER;
   public mobile = false;
 }

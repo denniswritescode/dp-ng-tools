@@ -1,0 +1,42 @@
+<ng-container matColumnDef="expandable">
+
+  <td mat-cell *matCellDef="let data" [attr.colspan]="colSpan">
+
+
+    <!-- Rough HTML stubbing -->
+
+    <div class="item-details">
+
+      <div class="detail">
+
+        <div class="icon">
+
+          <i class="material-icons">phone_perm_msg</i>
+
+        </div>
+
+        <div class="info">
+
+          <div class="info-value">
+
+            Google Inc.
+
+          </div>
+
+          <div class="info-label">
+
+            Company Name
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </td>
+
+</ng-container>
+
+<tr class="expandable-row" mat-row *matRowDef="let row; columns: ['expandable'];"></tr>
